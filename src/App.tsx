@@ -14,7 +14,11 @@ import {
   Github,
   FileText
 } from 'lucide-react';
-
+ // Personal Information
+const PERSONAL_EMAIL = "ashrafm10050@gmail.com";
+const PERSONAL_PHONE = "01099078502";
+const LINKEDIN_URL = "#"; 
+const GITHUB_URL = "https://github.com/ashrafm10050-droid";
 // --- Types & Data ---
 
 type SectionType = 'home' | 'portfolio' | 'about' | 'contact';
@@ -390,11 +394,19 @@ const Footer = () => (
         <div className="mb-6 md:mb-0 text-center md:text-left">
           <h4 className="text-white text-xl font-bold mb-2">Ashraf Mohamed Rizk</h4>
           <p className="text-sm">Electronic Engineering Student</p>
+          <p className="text-sm text-slate-400 mt-2">📞 01099078502</p>
         </div>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-amber-400 transition-colors"><Mail size={24} /></a>
-          <a href="#" className="hover:text-amber-400 transition-colors"><Linkedin size={24} /></a>
-          <a href="#" className="hover:text-amber-400 transition-colors"><Github size={24} /></a>
+          {/* البريد */}
+          <a href="mailto:ashrafm10050@gmail.com" className="hover:text-amber-400 transition-colors" title="Email">
+            <Mail size={24} />
+          </a>
+          <a href="#" className="hover:text-amber-400 transition-colors" title="LinkedIn">
+            <Linkedin size={24} />
+          </a>
+          <a href="#" className="hover:text-amber-400 transition-colors" title="GitHub">
+            <Github size={24} />
+          </a>
         </div>
       </div>
       <div className="mt-8 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
@@ -506,21 +518,26 @@ export default function App() {
             
             {activeSection === 'portfolio' && <PortfolioList onItemClick={handleItemClick} />}
             
-            {activeSection === 'contact' && (
-               <div className="container mx-auto px-6 py-20 min-h-[60vh] flex flex-col items-center justify-center text-center">
-                 <div className="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mb-6">
-                   <Mail size={40} />
-                 </div>
-                 <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-                 <p className="text-slate-600 max-w-lg mb-8">
-                   I am currently open to academic collaborations and professional opportunities. 
-                   Feel free to reach out via email for any inquiries.
-                 </p>
-                 <a href="mailto:email@example.com" className="bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:bg-slate-800 transition-colors">
-                   Send Email
-                 </a>
-               </div>
-            )}
+           {activeSection === 'contact' && (
+  <div className="container mx-auto px-6 py-20 min-h-[60vh] flex flex-col items-center justify-center text-center">
+    <div className="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mb-6">
+      <Mail size={40} />
+    </div>
+    <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
+    <p className="text-slate-600 max-w-lg mb-8">
+      I am currently open to academic collaborations and professional opportunities. 
+      Feel free to reach out via email or phone for any inquiries.
+    </p>
+    {/* كدة البريد */}
+    <a href="mailto:ashrafm10050@gmail.com" className="bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:bg-slate-800 transition-colors mb-4 inline-block">
+      Send Email
+    </a>
+    {/* وكدة رقم التليفون */}
+    <p className="text-slate-600">
+      <span className="font-semibold">Phone:</span> 01099078502
+    </p>
+  </div>
+)}
           </>
         )}
       </main>
